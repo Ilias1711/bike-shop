@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-white);
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.button {
+  font-size: 16px; /* Размер шрифта */
+  color: var(--color-grey); /* Цвет текста */
+  width: 100%;
+  background-color: var(--color-green); /* Цвет фона кнопки */
+  border: none; /* Убираем границу */
+  border-radius: var(--border-radius); /* Закругленные углы */
+  text-decoration: none; /* Убираем подчеркивание */
+  text-align: center; /* Центрируем текст */
+  transition: background-color 0.3s, transform 0.2s; /* Добавляем эффект перехода */
+  height: 32px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--color-button-hover);
+}
+
+.button:focus {
+  background-color: var(--color-button-focus);
+}
+
+.bike-shop {
+  width: 100%; /* Занять всю ширину */
+  max-width: 100vw; /* Максимальная ширина равна ширине окна */
+  overflow-x: hidden; /* Скрыть горизонтальный скролл */
+}

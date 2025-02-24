@@ -1,0 +1,43 @@
+@font-face {
+  font-family: "PT_sans";
+  src: url("./fonts/PT_Sans/PTSans-Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: Bold;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("./fonts/Inter/Inter-VariableFont_opsz\,wght.ttf");
+  font-weight: normal;
+}
+
+:root {
+  --color-grey: #263238;
+  --color-green: #baef00;
+  --color-button-hover: #d9ff56;
+  --color-button-focus: #a3d200;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-smoke: #e3e3e3;
+  --color-price: #6c6c6c;
+
+  --button-height: 40px;
+  --border-radius: 12px;
+
+  --font-family-base: "PTSans", sans-serif;
+  --font-family-accent: "Inter";
+
+  --container-width-mobile: 290px;
+  --container-padding-mobile: 15px;
+
+  --container-width-descktop: 1170px;
+  --container-padding-descktop: 171px;
+}
+
+.container {
+  max-width: calc(
+    var(--container-width-mobile) + (var(--container-padding-mobile) * 2)
+  );
+  margin-inline: auto;
+  padding-inline: var(--container-padding-mobile);
+}

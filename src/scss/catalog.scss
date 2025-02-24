@@ -1,0 +1,218 @@
+.catalog_list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+}
+
+.catalog_list_element {
+  border: 1px solid var(--color-smoke);
+  border-radius: var(--border-radius);
+  padding: 10px;
+  min-height: 229px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.catalog_list_element:hover {
+  transform: translateY(-7px);
+  transition: background-color 0.3s, transform 0.5s;
+}
+
+.element-1 {
+  grid-area: 1 / 1 / 2 / 2;
+}
+.element-2 {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.element-3 {
+  grid-area: 2 / 1 / 3 / 3;
+  background-image: url("../img/catalog_img_3.jpeg");
+  display: flex;
+  flex-direction: column; /* Вертикальное направление */
+  justify-content: flex-end;
+  height: 273px;
+  background-size: cover;
+  background-position: center;
+}
+
+.element_description {
+  padding: 10px;
+}
+
+.element_description_title {
+  font-family: "Inter";
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18.4px;
+  letter-spacing: 0%;
+  color: var(--color-white);
+}
+
+.element_description_price {
+  font-family: "Inter";
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 18.4px;
+  letter-spacing: 0%;
+  color: var(--color-white);
+}
+
+.element_description {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: var(--border-radius);
+}
+
+.element-4 {
+  grid-area: 3 / 1 / 4 / 3;
+  background-image: url("../img/catalog_img_4.jpeg");
+  display: flex;
+  flex-direction: column; /* Вертикальное направление */
+  justify-content: flex-end;
+  height: 273px;
+  background-size: cover;
+  background-position: center;
+}
+.element-5 {
+  grid-area: 4 / 1 / 5 / 2;
+}
+.element-6 {
+  grid-area: 4 / 2 / 5 / 3;
+}
+
+.catalog_container {
+  display: flex;
+  justify-content: center; /* Центрирование по горизонтали */
+  align-items: center; /* Центрирование по вертикали */
+  min-height: 100vh; /* Минимальная высота на весь экран */
+  padding: 15px; /* Отступы */
+  box-sizing: border-box;
+  flex-direction: column;
+}
+
+.catalog_title {
+  text-align: center;
+  font-family: Arial;
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 29.9px;
+  letter-spacing: 0%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.catalog {
+  margin-top: 25px;
+}
+
+.catalog_element_title {
+  font-family: Arial;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16.1px;
+  letter-spacing: 0%;
+  margin-bottom: 10px;
+}
+
+.catalog_element_price {
+  font-family: Arial;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16.1px;
+  letter-spacing: 0%;
+  color: var(--color-price);
+  margin-bottom: 10px;
+}
+
+.catalog_element_img {
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.catalog_button {
+  justify-content: space-between;
+  margin: 10px 0;
+  width: 100%;
+}
+
+.catalog_search {
+  padding: 10px 15px;
+  border-radius: var(--border-radius);
+}
+
+.catalog_search:hover {
+  border-color: var(--color-button-focus);
+}
+
+.catalog_header {
+  margin-bottom: 15px;
+}
+
+.catalog_more {
+  width: 100%;
+  margin-top: 20px;
+  padding: 0 20px;
+}
+
+.catalog_more_button {
+  background-color: var(--color-smoke);
+}
+
+.catalog_more_button:hover {
+  background-color: var(--color-grey);
+  color: var(--color-white);
+}
+
+@media (min-width: 700px) {
+  .catalog_container {
+    padding: 0 100px;
+  }
+  .catalog_list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 30px;
+    grid-row-gap: 30px;
+  }
+  .element-1 {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .element-2 {
+    grid-area: 1 / 2 / 2 / 3;
+  }
+  .element-3 {
+    grid-area: 1 / 3 / 2 / 5;
+  }
+  .element-4 {
+    grid-area: 2 / 1 / 3 / 3;
+  }
+  .element-5 {
+    grid-area: 2 / 3 / 3 / 4;
+  }
+  .element-6 {
+    grid-area: 2 / 4 / 3 / 5;
+  }
+  .catalog_header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+  .catalog_title {
+    margin-bottom: 0;
+  }
+  .catalog_header {
+    margin-bottom: 20px;
+  }
+  .catalog_more {
+    display: flex;
+  }
+  .catalog_more_button {
+    width: 30%;
+    margin: 0 auto;
+  }
+}

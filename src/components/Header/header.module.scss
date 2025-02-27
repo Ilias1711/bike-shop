@@ -19,7 +19,7 @@
   box-sizing: border-box;
 }
 
-.header-menu_list {
+.headerMenu_list {
   display: flex;
   list-style-type: none;
   gap: 30px;
@@ -28,7 +28,7 @@
   padding-right: 0;
 }
 
-.header-menu {
+.headerMenu {
   background-color: var(--color-grey);
   width: 100%;
   display: grid;
@@ -44,15 +44,15 @@
   padding: 23px;
 }
 
-.header-menu_link:hover {
+.headerMenu_link:hover {
   color: var(--color-smoke);
 }
 
-.header-menu_link:focus {
+.headerMenu_link:focus {
   color: var(--color-green);
 }
 
-.header-menu_link {
+.headerMenu_link {
   font-family: "PT_sans";
   color: var(--color-white);
   text-decoration: none;
@@ -70,7 +70,7 @@
   .header_logo_container {
     width: 200px;
   }
-  .header-menu_list {
+  .headerMenu_list {
     float: right;
     text-align: right;
   }
@@ -79,7 +79,7 @@
     justify-content: space-around;
     padding: 0 100px; /* Отступы */
   }
-  .header-menu {
+  .headerMenu {
     display: flex;
     justify-content: flex-end;
   }

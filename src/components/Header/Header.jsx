@@ -1,9 +1,11 @@
+import styles from "./header.module.scss";
+
 function Header() {
   return (
-    <header className="header">
-      <div className="header_container">
-        <div className="header_logo_container">
-          <a className="header_logo" href="/">
+    <header className={styles.header}>
+      <div className={styles.header_container}>
+        <div className={styles.header_logo_container}>
+          <a className={styles.header_logo} href="/">
             <svg
               width="154"
               height="16"
@@ -64,25 +66,25 @@ function Header() {
             </svg>
           </a>
         </div>
-        <nav className="header-menu">
-          <ul className="header-menu_list">
-            <li className="header-menu_item">
-              <a className="header-menu_link" href="/">
+        <nav className={styles.headerMenu}>
+          <ul className={styles.headerMenu_list}>
+            <li className={styles.headerMenu_item}>
+              <a className={styles.headerMenu_link} href="/">
                 Каталог
               </a>
             </li>
-            <li className="header-menu_item">
-              <a className="header-menu_link" href="/">
+            <li className={styles.headerMenu_item}>
+              <a className={styles.headerMenu_link} href="/">
                 Корзина
               </a>
             </li>
-            <li className="header-menu_item">
-              <a className="header-menu_link" href="/">
+            <li className={styles.headerMenu_item}>
+              <a className={styles.headerMenu_link} href="/">
                 Заказать
               </a>
             </li>
-            <li className="header-menu_item">
-              <a className="header-menu_link" href="/">
+            <li className={styles.headerMenu_item}>
+              <a className={styles.headerMenu_link} href="/">
                 Контакты
               </a>
             </li>

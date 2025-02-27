@@ -31,7 +31,6 @@
 
 .element3 {
   grid-area: 2 / 1 / 3 / 3;
-  background-image: url("../img/catalog_img_3.jpeg");
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -67,19 +66,7 @@
   border-radius: var(--border-radius);
 }
 
-.element4 {
-  grid-area: 3 / 1 / 4 / 3;
-  display: flex;
-  flex-direction: column; /* Вертикальное направление */
-  justify-content: flex-end;
-  height: 273px;
-  background-size: cover;
-  background-position: center;
-}
-.element5 {
-  grid-area: 4 / 1 / 5 / 2;
-}
-.element6 {
+.element-6 {
   grid-area: 4 / 2 / 5 / 3;
 }
 
@@ -182,12 +169,6 @@
   }
   .element2 {
     grid-area: 1 / 2 / 2 / 3;
-  }
-  .element3 {
-    grid-area: 1 / 3 / 2 / 5;
-  }
-  .element4 {
-    grid-area: 2 / 1 / 3 / 3;
   }
   .element5 {
     grid-area: 2 / 3 / 3 / 4;

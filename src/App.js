@@ -1,10 +1,11 @@
+import React, { useState } from "react";
 import Header from "./components/Header/Header";
 import Bag from "./components/Bag/Bag";
 import Footer from "./components/Footer";
 import Feedback from "./components/Feedback";
 import CatalogListElement from "./components/CatalogListElement/CatalogListElement";
 import CatalogListNew from "./components/CatalogListNew/CatalogListNew";
-import catalogImg from "./img/catalog_img_1.jpeg";
+// import catalogImg from "./img/catalog_img_1.jpeg";
 import catalogImg2 from "./img/catalog_img_2.jpeg";
 import catalogImg3 from "./img/catalog_img_3.jpeg";
 import catalogImg4 from "./img/catalog_img_4.jpeg";
@@ -16,7 +17,7 @@ const catalogArray = [
   {
     name: "Велосипед BMXTech Team Goof 20",
     price: 12830,
-    imageUrl: catalogImg,
+    imageUrl: "./img/catalog_img_1.jpeg",
     listNumber: "element1",
   },
   {
@@ -55,10 +56,11 @@ const catalogArrayNew = [
 ];
 
 function App() {
+  const [opened, setOpened] = React.useState(false);
   return (
     <div className="bike-shop">
-      <Bag />
-      <Header />
+      {opened ? <Bag onCloseBag={() => setOpened(false)} /> : null}
+      <Header onClickBag={() => setOpened(true)} />
       <main className="content">
         <div className="content_container">
           <div className="content_wrapper">
@@ -86,14 +88,16 @@ function App() {
               ></input>
             </div>
             <div className="catalog_list">
-              {catalogArray.map(function (item, index) {
+              {catalogArray.map(function (item) {
                 return (
                   <CatalogListElement
                     title={item.name}
                     price={item.price}
                     imageUrl={item.imageUrl}
-                    // cl={`element${index + 1}`}
                     listNumber={item.listNumber}
+                    onClickBag={() => {
+                      console.log("ClickPlus");
+                    }}
                   />
                 );
               })}
@@ -104,6 +108,9 @@ function App() {
                     price={item.price}
                     image={item.imageUrl}
                     listNumber={item.listNumber}
+                    onClickBag={() => {
+                      console.log("ClickButton");
+                    }}
                   />
                 );
               })}

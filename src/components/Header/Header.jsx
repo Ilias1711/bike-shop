@@ -1,6 +1,6 @@
 import styles from "./header.module.scss";
 
-function Header() {
+function Header(props) {
   return (
     <header className={styles.header}>
       <div className={styles.header_container}>
@@ -73,10 +73,8 @@ function Header() {
                 Каталог
               </a>
             </li>
-            <li className={styles.headerMenu_item}>
-              <a className={styles.headerMenu_link} href="/">
-                Корзина
-              </a>
+            <li className={styles.headerMenu_item} onClick={props.onClickBag}>
+              <a className={styles.headerMenu_link}>Корзина</a>
             </li>
             <li className={styles.headerMenu_item}>
               <a className={styles.headerMenu_link} href="/">

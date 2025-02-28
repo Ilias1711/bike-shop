@@ -1,5 +1,11 @@
+import React from "react";
+
 import styles from "./catalog.module.scss";
 function CatalogListElement(props) {
+  const [isAdded, setIsAdded] = React.useState(false);
+  const onClickButton = function () {
+    setIsAdded(!isAdded);
+  };
   return (
     <div className={`${styles.catalog_list_element} ${props.listNumber}`}>
       <img
@@ -13,8 +19,16 @@ function CatalogListElement(props) {
       <span
         className={styles.catalog_element_price}
       >{`${props.price} руб`}</span>
-      <button className="button catalog_button" onClick={props.onClick}>
-        Купить
+      <button
+        className="button catalog_button"
+        onClick={onClickButton}
+        style={
+          isAdded
+            ? { backgroundColor: "#D9FF56" }
+            : { backgroundColor: "#baef00" }
+        }
+      >
+        {isAdded ? "В корзине" : "Купить"}
       </button>
     </div>
   );

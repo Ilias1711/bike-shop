@@ -1,65 +1,75 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./components/Header/Header";
 import Bag from "./components/Bag/Bag";
 import Footer from "./components/Footer";
 import Feedback from "./components/Feedback";
 import CatalogListElement from "./components/CatalogListElement/CatalogListElement";
 import CatalogListNew from "./components/CatalogListNew/CatalogListNew";
-// import catalogImg from "./img/catalog_img_1.jpeg";
-import catalogImg2 from "./img/catalog_img_2.jpeg";
-import catalogImg3 from "./img/catalog_img_3.jpeg";
-import catalogImg4 from "./img/catalog_img_4.jpeg";
-import catalogImg5 from "./img/catalog-img5.jpg";
-import catalogImg6 from "./img/catalog-img-6.jpg";
-import contentImg from "./img/content_picture.png";
 
-const catalogArray = [
-  {
-    name: "Велосипед BMXTech Team Goof 20",
-    price: 12830,
-    imageUrl: "./img/catalog_img_1.jpeg",
-    listNumber: "element1",
-  },
-  {
-    name: 'Горный велосипед29" TRINX',
-    price: 13884,
-    imageUrl: catalogImg2,
-    listNumber: "element2",
-  },
-  {
-    name: "Шлем велосипедный VSH 25 full lime",
-    price: 1244,
-    imageUrl: catalogImg5,
-    listNumber: "element5",
-  },
-  {
-    name: "Велосипед RUSH HOUR XS 925",
-    price: 12830,
-    imageUrl: catalogImg6,
-    listNumber: "element6",
-  },
-];
+// const catalogArray = [
+//   {
+//     name: "Велосипед BMXTech Team Goof 20",
+//     price: 12830,
+//     imageUrl: "/img/catalog_img_1.jpeg",
+//     listNumber: "element1",
+//   },
+//   {
+//     name: 'Горный велосипед29" TRINX',
+//     price: 13884,
+//     imageUrl: "/img/catalog_img_2.jpeg",
+//     listNumber: "element2",
+//   },
+//   {
+//     name: "Шлем велосипедный VSH 25 full lime",
+//     price: 1244,
+//     imageUrl: "/img/catalog-img5.jpg",
+//     listNumber: "element5",
+//   },
+//   {
+//     name: "Велосипед RUSH HOUR XS 925",
+//     price: 12830,
+//     imageUrl: "/img/catalog-img-6.jpg",
+//     listNumber: "element6",
+//   },
+// ];
 
 const catalogArrayNew = [
   {
     name: " Велосипед BMX Tech Team Goof 20",
     price: 12830,
-    imageUrl: catalogImg3,
+    imageUrl: "/img/catalog_img_3.jpeg",
     listNumber: "element3",
   },
   {
     name: "Велосипед BMX Tech Team Goof 30",
     price: 14700,
-    imageUrl: catalogImg4,
+    imageUrl: "/img/catalog_img_4.jpeg",
     listNumber: "element4",
   },
 ];
 
 function App() {
-  const [opened, setOpened] = React.useState(false);
+  const [opened, setOpened] = React.useState(false); //открытие корзины
+  const [items, setItems] = React.useState([]); //состояние каталога
+  const [bagItems, setBagItems] = React.useState([]); //массив для отправки в корзину
+  let url = "https://67c1b76c61d8935867e404c4.mockapi.io/items"; //url сервера
+  React.useEffect(() => {
+    fetch(url)
+      .then((res) => {
+        return res.json();
+      })
+      .then((json) => {
+        setItems(json);
+      });
+  }, []);
+  const onAddToBag = (obj) => {
+    setBagItems((prev) => [...prev, obj]);
+  };
   return (
     <div className="bike-shop">
-      {opened ? <Bag onCloseBag={() => setOpened(false)} /> : null}
+      {opened ? (
+        <Bag bagElements={bagItems} onCloseBag={() => setOpened(false)} />
+      ) : null}
       <Header onClickBag={() => setOpened(true)} />
       <main className="content">
         <div className="content_container">
@@ -72,7 +82,7 @@ function App() {
             </p>
             <button className="button content_button">Выбрать велосипед</button>
             <div className="content_picture">
-              <img src={contentImg}></img>
+              <img src="/img/content_picture.png"></img>
             </div>
           </div>
         </div>
@@ -88,16 +98,14 @@ function App() {
               ></input>
             </div>
             <div className="catalog_list">
-              {catalogArray.map(function (item) {
+              {items.map(function (item) {
                 return (
                   <CatalogListElement
                     title={item.name}
                     price={item.price}
                     imageUrl={item.imageUrl}
                     listNumber={item.listNumber}
-                    onClickBag={() => {
-                      console.log("ClickPlus");
-                    }}
+                    onClickBag={onAddToBag}
                   />
                 );
               })}
@@ -108,9 +116,7 @@ function App() {
                     price={item.price}
                     image={item.imageUrl}
                     listNumber={item.listNumber}
-                    onClickBag={() => {
-                      console.log("ClickButton");
-                    }}
+                    onClickBag={onAddToBag}
                   />
                 );
               })}

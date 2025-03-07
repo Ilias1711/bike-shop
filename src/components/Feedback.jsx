@@ -1,8 +1,14 @@
 function Feedback() {
   return (
     <div className="feedback">
-      <div className="feedback_bike"></div>
-      <div className="feedback_container">
+      <div
+        className="feedback_bike"
+        style={{ backgroundImage: `url("/img/feedback_img.jpeg")` }}
+      ></div>
+      <div
+        className="feedback_container"
+        style={{ backgroundImage: `URL("/img/feedback_img.jpeg")` }}
+      >
         <p className="feedback_info">
           Укажите номер телефона и мы с вам свяжемся для обсуждения заказа.
         </p>

@@ -1,20 +1,21 @@
 import React from "react";
 import styles from "./catalog.module.scss";
 
-function CatalogListNew(props) {
-  const [isAdded, setIsAdded] = React.useState(false);
+function CatalogListNew({ title, listNumber, image, price, onClickBag }) {
+  const [isAdded, setIsAdded] = React.useState(false); //компонент товара добавление/удаление из корзины
 
   const onClickButton = function () {
+    onClickBag({ title, image, price });
     setIsAdded(!isAdded);
   };
   return (
     <div
-      className={`${styles.catalog_list_element} ${props.listNumber}`}
-      style={{ backgroundImage: `url(${props.image})` }}
+      className={`${styles.catalog_list_element} ${listNumber}`}
+      style={{ backgroundImage: `url(${image})` }}
     >
       <div className={styles.element_description}>
-        <h5 className={styles.element_description_title}>{props.title}</h5>
-        <span className={styles.element_description_price}>{props.price}</span>
+        <h5 className={styles.element_description_title}>{title}</h5>
+        <span className={styles.element_description_price}>{price}</span>
         <button
           className="button catalog_button"
           onClick={onClickButton}

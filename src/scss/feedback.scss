@@ -19,7 +19,7 @@
 
 .feedback_container {
   padding: 15px;
-  background-image: url("../img/feedback_img.jpeg");
+  // background-image: url("/img/feedback_img.jpeg");
 }
 
 .feedback_phone {
@@ -49,7 +49,7 @@
   .feedback_bike {
     display: block;
     grid-area: 1 / 1 / 2 / 2;
-    background-image: url("../img/feedback_fone.jpg");
+    // background-image: url("/img/catalog_img_4.jpeg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

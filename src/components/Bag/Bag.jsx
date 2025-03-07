@@ -1,15 +1,16 @@
 import React from "react";
-import CatalogListElement from "../CatalogListElement/CatalogListElement";
+import { useState } from "react";
+import BagComponent from "../BagComponent/BagComponent";
 import styles from "./bag.module.scss";
 
-function Bag(props) {
+function Bag({ onCloseBag, bagElements = [] }) {
   return (
     <div className={styles.bag_outside}>
       <div className={styles.bag}>
         <div className={styles.bag_header}>
           <h2 className={styles.bag_title}>Корзина</h2>
           <svg
-            onClick={props.onCloseBag}
+            onClick={onCloseBag}
             style={{ cursor: "pointer" }}
             width="20"
             height="20"
@@ -31,8 +32,15 @@ function Bag(props) {
           </svg>
         </div>
         <div className={styles.bag_list}>
-          <CatalogListElement />
-          <CatalogListElement />
+          {bagElements.map(function (item) {
+            return (
+              <BagComponent
+                title={item.name}
+                price={item.price}
+                image={item.imageUrl}
+              />
+            );
+          })}
         </div>
         <div className={styles.bag_result}>
           <div className={styles.bag_result_sum}>

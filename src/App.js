@@ -62,13 +62,26 @@ function App() {
         setItems(json);
       });
   }, []);
+  //ф-ция добавления в корзину
   const onAddToBag = (obj) => {
     setBagItems((prev) => [...prev, obj]);
   };
+  //ф-ция удаления из корзины
+  const onClickRemove = (obj) => {
+    setBagItems(function (prevItems) {
+      console.log(prevItems);
+      return prevItems.filter((item) => item.name !== obj.name);
+    });
+  };
+
   return (
     <div className="bike-shop">
       {opened ? (
-        <Bag bagElements={bagItems} onCloseBag={() => setOpened(false)} />
+        <Bag
+          bagElements={bagItems}
+          onCloseBag={() => setOpened(false)}
+          bagRemove={onClickRemove}
+        />
       ) : null}
       <Header onClickBag={() => setOpened(true)} />
       <main className="content">
@@ -101,7 +114,7 @@ function App() {
               {items.map(function (item) {
                 return (
                   <CatalogListElement
-                    title={item.name}
+                    name={item.name}
                     price={item.price}
                     imageUrl={item.imageUrl}
                     listNumber={item.listNumber}
@@ -112,9 +125,9 @@ function App() {
               {catalogArrayNew.map((item) => {
                 return (
                   <CatalogListNew
-                    title={item.name}
+                    name={item.name}
                     price={item.price}
-                    image={item.imageUrl}
+                    imageUrl={item.imageUrl}
                     listNumber={item.listNumber}
                     onClickBag={onAddToBag}
                   />

@@ -1,9 +1,8 @@
 import React from "react";
-import { useState } from "react";
 import BagComponent from "../BagComponent/BagComponent";
 import styles from "./bag.module.scss";
 
-function Bag({ onCloseBag, bagElements = [] }) {
+function Bag({ bagRemove, onCloseBag, bagElements = [] }) {
   return (
     <div className={styles.bag_outside}>
       <div className={styles.bag}>
@@ -35,9 +34,10 @@ function Bag({ onCloseBag, bagElements = [] }) {
           {bagElements.map(function (item) {
             return (
               <BagComponent
-                title={item.name}
+                name={item.name}
                 price={item.price}
                 image={item.imageUrl}
+                bagRemove={bagRemove}
               />
             );
           })}

@@ -1,16 +1,10 @@
 import React from "react";
 import styles from "./catalog.module.scss";
-function CatalogListElement({
-  onClickBag,
-  imageUrl,
-  title,
-  price,
-  listNumber,
-}) {
+function CatalogListElement({ onClickBag, imageUrl, name, price, listNumber }) {
   const [isAdded, setIsAdded] = React.useState(false);
   const onClickButton = function () {
     setIsAdded(!isAdded);
-    onClickBag({ title, imageUrl, price });
+    onClickBag({ name, imageUrl, price });
   };
   return (
     <div className={`${styles.catalog_list_element} ${listNumber}`}>
@@ -21,7 +15,7 @@ function CatalogListElement({
         width="140"
         height="91"
       ></img>
-      <h3 className={styles.catalog_element_title}>{title}</h3>
+      <h3 className={styles.catalog_element_title}>{name}</h3>
       <span className={styles.catalog_element_price}>{`${price} руб`}</span>
       <button
         className="button catalog_button"

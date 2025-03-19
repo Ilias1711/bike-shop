@@ -1,9 +1,10 @@
 import React from "react";
 import styles from "./bagComponent.module.scss";
-function BagComponent({ name, image, price, bagRemove }) {
-  const bagButtonRemove = () => {
-    bagRemove({ name, image, price });
-  };
+function BagComponent({ name, image, price, bagRemove, id }) {
+  // const bagButtonRemove = () => {
+  //   bagRemove({ name, image, price, id });
+  // };
+  console.log("id", id);
   return (
     <div className={styles.bag_item}>
       <img className={styles.bag_item_img} alt="товар" src={image} />
@@ -13,7 +14,12 @@ function BagComponent({ name, image, price, bagRemove }) {
         <div className={styles.bag_item_price_row}></div>
         <span className={styles.bag_item_price}>{price}руб</span>
       </div>
-      <button onClick={bagButtonRemove} className={`${styles.bag_button}`}>
+      <button
+        onClick={() => {
+          bagRemove(id);
+        }}
+        className={`${styles.bag_button}`}
+      >
         Убрать из корзины
       </button>
     </div>

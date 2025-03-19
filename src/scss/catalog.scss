@@ -93,6 +93,7 @@
 }
 
 .catalog_title {
+  overflow: hidden;
   text-align: center;
   font-family: Arial;
   font-weight: 700;
@@ -148,6 +149,12 @@
 
 .catalog_header {
   margin-bottom: 15px;
+  position: relative;
+}
+
+.catalog_search_clear {
+  position: absolute;
+  right: 10px;
 }
 
 .catalog_more {

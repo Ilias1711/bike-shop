@@ -4,6 +4,7 @@ function CatalogListElement({ onClickBag, imageUrl, name, price, listNumber }) {
   const [isAdded, setIsAdded] = React.useState(false);
   const onClickButton = function () {
     setIsAdded(!isAdded);
+    console.log("onClickButton", { name, imageUrl, price });
     onClickBag({ name, imageUrl, price });
   };
   return (

@@ -52,7 +52,7 @@ function Header(props) {
                 height="13"
                 rx="6.5"
                 stroke="#263238"
-                stroke-width="2"
+                strokeWidth="2"
               />
               <rect
                 x="1"
@@ -61,7 +61,7 @@ function Header(props) {
                 height="13"
                 rx="6.5"
                 stroke="#263238"
-                stroke-width="2"
+                strokeWidth="2"
               />
             </svg>
           </a>

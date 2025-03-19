@@ -3,6 +3,10 @@ import BagComponent from "../BagComponent/BagComponent";
 import styles from "./bag.module.scss";
 
 function Bag({ bagRemove, onCloseBag, bagElements = [] }) {
+  //стоимость товаров в корзине
+  let bagSum = bagElements.reduce((acum, item) => {
+    return acum + item.price;
+  }, 0);
   return (
     <div className={styles.bag_outside}>
       <div className={styles.bag}>
@@ -19,13 +23,13 @@ function Bag({ bagRemove, onCloseBag, bagElements = [] }) {
             <path
               transform="scale(.97098 1.0282) rotate(-45 24.51 7.237)"
               stroke="#000"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               d="M0-.75h24.758"
             />
             <path
               transform="matrix(.68659 .72705 -.68659 .72705 1 2)"
               stroke="#000"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               d="M0-.75h24.758"
             />
           </svg>
@@ -35,9 +39,10 @@ function Bag({ bagRemove, onCloseBag, bagElements = [] }) {
             return (
               <BagComponent
                 name={item.name}
-                price={item.price}
                 image={item.imageUrl}
+                price={item.price}
                 bagRemove={bagRemove}
+                id={item.id}
               />
             );
           })}
@@ -46,7 +51,7 @@ function Bag({ bagRemove, onCloseBag, bagElements = [] }) {
           <div className={styles.bag_result_sum}>
             <span className={styles.bag_result_all}>Итого:</span>
             <div className={styles.bag_result_line}></div>
-            <span className={styles.bag_result_money}>14744 руб.</span>
+            <span className={styles.bag_result_money}>{`${bagSum} руб`}</span>
           </div>
           <button className="button">Заказать</button>
         </div>

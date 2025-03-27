@@ -27,6 +27,28 @@
   border-radius: var(--border-radius);
 }
 
+.bag_empty {
+  width: 100%;
+  height: auto;
+}
+
+.bag_info {
+  font-family: "Arial";
+  position: absolute; /* Абсолютное позиционирование для сообщения */
+  left: 50%; /* Центрируем по горизонтали */
+  transform: translateX(-50%); /* Сдвигаем на половину ширины сообщения */
+  border-radius: 5px; /* Скругление углов */
+  font-size: 14px; /* Размер шрифта */
+  color: #333; /* Цвет текста */
+  white-space: nowrap;
+}
+
+.bag_picture {
+  width: 100%; /* Изображение займет всю ширину контейнера */
+  height: auto; /* Высота будет пропорциональна ширине */
+  object-fit: cover; /* Изображение будет обрезано, чтобы заполнить контейнер */
+}
+
 .bag_title {
   margin: 0;
   font-family: Arial;

@@ -4,7 +4,6 @@ function BagComponent({ name, image, price, bagRemove, id }) {
   // const bagButtonRemove = () => {
   //   bagRemove({ name, image, price, id });
   // };
-  console.log("id", id);
   return (
     <div className={styles.bag_item}>
       <img className={styles.bag_item_img} alt="товар" src={image} />

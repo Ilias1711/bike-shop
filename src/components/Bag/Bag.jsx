@@ -34,19 +34,31 @@ function Bag({ bagRemove, onCloseBag, bagElements = [] }) {
             />
           </svg>
         </div>
-        <div className={styles.bag_list}>
-          {bagElements.map(function (item) {
-            return (
-              <BagComponent
-                name={item.name}
-                image={item.imageUrl}
-                price={item.price}
-                bagRemove={bagRemove}
-                id={item.id}
-              />
-            );
-          })}
-        </div>
+        {bagElements.length > 0 ? (
+          <div className={styles.bag_list}>
+            {bagElements.map(function (item) {
+              return (
+                <BagComponent
+                  name={item.name}
+                  image={item.imageUrl}
+                  price={item.price}
+                  bagRemove={bagRemove}
+                  id={item.id}
+                />
+              );
+            })}
+          </div>
+        ) : (
+          <div className={styles.bag_empty}>
+            <img
+              className={styles.bag_picture}
+              src="/img/bag.jpg"
+              alt="Пустая корзина"
+            ></img>
+            <p className={styles.bag_info}>Ваша корзина пуста</p>
+          </div>
+        )}
+
         <div className={styles.bag_result}>
           <div className={styles.bag_result_sum}>
             <span className={styles.bag_result_all}>Итого:</span>

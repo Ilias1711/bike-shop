@@ -72,7 +72,7 @@ function Header(props) {
         <nav className={styles.headerMenu}>
           <ul className={styles.headerMenu_list}>
             <li className={styles.headerMenu_item}>
-              <Link to="/test">
+              <Link to="/Catalog">
                 <p className={styles.headerMenu_link}>Каталог</p>
               </Link>
             </li>

@@ -16,7 +16,7 @@ const catalogArrayNew = [
   },
 ];
 
-function Home({
+function Catalog({
   searchValue,
   setSearchValue,
   onChangeInput,
@@ -106,4 +106,5 @@ function Home({
     </div>
   );
 }
-export default Home;
+
+export default Catalog;

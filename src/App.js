@@ -4,8 +4,8 @@ import axios from "axios";
 import Header from "./components/Header/Header";
 import Bag from "./components/Bag/Bag";
 import Footer from "./components/Footer";
-import Feedback from "./components/Feedback";
-import Catalog from "./components/pages/Catallog";
+import Home from "./components/pages/Home";
+import Catalog from "./components/pages/Catalog";
 
 // const catalogArray = [
 //   [
@@ -70,7 +70,6 @@ function App() {
   const onChangeInput = (event) => {
     setSearchValue(event.target.value);
   };
-  //Роут
   return (
     <div className="bike-shop">
       {opened ? (
@@ -82,24 +81,21 @@ function App() {
       ) : null}
       <Header onClickBag={() => setOpened(true)} />
       <main className="content">
-        <div className="content_container">
-          <div className="content_wrapper">
-            <h1 className="content_title">
-              Магазин велосипедов с самой быстрой доставкой
-            </h1>
-            <p className="content_slogan">
-              Закажите велосипед прямо сейчас и мы подарим вам отличную каску.
-            </p>
-            <button className="button content_button">Выбрать велосипед</button>
-            <div className="content_picture">
-              <img src="/img/content_picture.png" alt="man"></img>
-            </div>
-          </div>
-        </div>
-        <Feedback />
         <Routes>
           <Route
             path="/"
+            element={
+              <Home
+                items={items}
+                searchValue={searchValue}
+                setSearchValue={setSearchValue}
+                onChangeInput={onChangeInput}
+                onAddToBag={onAddToBag}
+              />
+            }
+          />
+          <Route
+            path="/Catalog"
             element={
               <Catalog
                 items={items}

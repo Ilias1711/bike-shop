@@ -80,8 +80,8 @@ function Header(props) {
               <p className={styles.headerMenu_link}>Корзина</p>
             </li>
             <li className={styles.headerMenu_item}>
-              <Link>
-                <p className={styles.headerMenu_link}>Заказать</p>
+              <Link to={"/favorites"}>
+                <p className={styles.headerMenu_link}>Избранное</p>
               </Link>
             </li>
             <li className={styles.headerMenu_item}>

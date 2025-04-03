@@ -6,6 +6,35 @@
   grid-row-gap: 10px;
 }
 
+.catalog_list_favorite {
+  margin-right: 0; /* Убираем отступ справа */
+  position: absolute; /* Устанавливаем абсолютное позиционирование */
+  right: 10%; /* Прижимаем к правому краю */
+  top: 10%; /* Центрируем по вертикали */
+  transform: translateY(
+    -50%
+  ); /* Сдвигаем на половину высоты элемента для центрирования */
+  width: 24px; /* Начальная ширина */
+  height: 23px; /* Начальная высота */
+  transition: width 0.3s, height 0.3s; /* Плавный переход для изменения размеров */
+  fill: #828b8d;
+  cursor: pointer;
+}
+
+.catalog_list_favorite:hover {
+  width: 30px;
+  height: 29px;
+}
+
+.catalog_list_favorite:active {
+  fill: #000;
+}
+
+.catalog_list_favorite:focus {
+  fill: #000;
+  background-color: #000;
+}
+
 .catalog_list_element {
   border: 1px solid var(--color-smoke);
   border-radius: var(--border-radius);
@@ -15,6 +44,7 @@
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
+  position: relative;
 }
 
 .catalog_list_element:hover {

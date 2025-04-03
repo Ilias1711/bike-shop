@@ -6,6 +6,7 @@ import Bag from "./components/Bag/Bag";
 import Footer from "./components/Footer";
 import Home from "./components/pages/Home";
 import Catalog from "./components/pages/Catalog";
+import Favorites from "./components/pages/Favorites";
 
 // const catalogArray = [
 //   [
@@ -38,6 +39,7 @@ import Catalog from "./components/pages/Catalog";
 function App() {
   const [opened, setOpened] = useState(false); //открытие корзины
   const [items, setItems] = useState([]); //состояние каталога
+  const [favorites, setFavorites] = useState([]); // избранное
   const [searchValue, setSearchValue] = useState(""); //инпут каталога
   const [bagItems, setBagItems] = useState([]); //массив для отправки в корзину
   const url = "https://67c1b76c61d8935867e404c4.mockapi.io/items"; //товары
@@ -52,13 +54,17 @@ function App() {
   }, []);
   //метод добавления в корзину
   const onAddToBag = async (obj) => {
-    await axios.post(urlBag, obj);
-    // setBagItems((prev) => [...prev, obj]);
-    axios.get(urlBag).then((result) => {
-      setBagItems(result.data);
-    });
+    try {
+      await axios.post(urlBag, obj);
+      // setBagItems((prev) => [...prev, obj]);
+      axios.get(urlBag).then((result) => {
+        setBagItems(result.data);
+      });
+    } catch {
+      alert("Не удалось добавить в корзину");
+    }
   };
-  //метод удаления из корзины
+
   //сделать по id
   const onClickRemove = (id) => {
     axios.delete(`${urlBag}/${id}`);
@@ -66,6 +72,18 @@ function App() {
       return prevItems.filter((item) => item.id !== id);
     });
   };
+  //метод удаления из избранного
+  const onAddToFavorite = (obj) => {
+    // Проверяем, есть ли элемент уже в избранном
+    if (favorites.find((item) => item.name === obj.name)) {
+      // Если да, то удаляем его из избранного
+      setFavorites((prev) => prev.filter((elem) => elem.name !== obj.name));
+    } else {
+      // Если нет, то добавляем его в избранное
+      setFavorites((prev) => [...prev, obj]);
+    }
+  };
+
   //метод поиска в каталоге
   const onChangeInput = (event) => {
     setSearchValue(event.target.value);
@@ -91,6 +109,7 @@ function App() {
                 setSearchValue={setSearchValue}
                 onChangeInput={onChangeInput}
                 onAddToBag={onAddToBag}
+                clickFavorite={onAddToFavorite}
               />
             }
           />
@@ -103,6 +122,17 @@ function App() {
                 setSearchValue={setSearchValue}
                 onChangeInput={onChangeInput}
                 onAddToBag={onAddToBag}
+                onAddToFavorite={onAddToFavorite}
+              />
+            }
+          />
+          <Route
+            path="/favorites"
+            element={
+              <Favorites
+                favoriteElements={favorites}
+                onAddToBag={onAddToBag}
+                onAddToFavorite={onAddToFavorite}
               />
             }
           />

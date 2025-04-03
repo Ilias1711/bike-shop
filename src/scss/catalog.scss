@@ -6,6 +6,12 @@
   grid-row-gap: 10px;
 }
 
+.catalog_empty {
+  display: felx;
+  flex-direction: column;
+  margin: 10px;
+}
+
 .catalog_list_element {
   border: 1px solid var(--color-smoke);
   border-radius: var(--border-radius);
@@ -84,12 +90,23 @@
 
 .catalog_container {
   display: flex;
-  justify-content: center; /* Центрирование по горизонтали */
   align-items: center; /* Центрирование по вертикали */
   min-height: 100vh; /* Минимальная высота на весь экран */
   padding: 15px; /* Отступы */
   box-sizing: border-box;
   flex-direction: column;
+}
+
+.catalog_empty_title {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 20px;
+}
+
+.catalog_empty_info {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
 }
 
 .catalog_title {

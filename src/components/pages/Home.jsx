@@ -24,6 +24,7 @@ function Home({
   onChangeInput,
   items,
   onAddToBag,
+  clickFavorite,
 }) {
   return (
     <>
@@ -83,6 +84,7 @@ function Home({
                     imageUrl={item.imageUrl}
                     listNumber={item.listNumber}
                     onClickBag={onAddToBag}
+                    clickFavorite={clickFavorite}
                   />
                 );
               })}

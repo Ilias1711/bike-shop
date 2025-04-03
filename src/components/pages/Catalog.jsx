@@ -22,6 +22,7 @@ function Catalog({
   onChangeInput,
   items,
   onAddToBag,
+  onAddToFavorite,
 }) {
   return (
     <div className="catalog">
@@ -78,6 +79,8 @@ function Catalog({
                   imageUrl={item.imageUrl}
                   listNumber={item.listNumber}
                   onClickBag={onAddToBag}
+                  clickFavorite={onAddToFavorite}
+                  favorited={true}
                 />
               );
             })}
